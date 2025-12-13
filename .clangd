@@ -1,0 +1,6 @@
+CompileFlags:
+  Add:
+    - -x
+    - c
+    - -I../include
+    - -std=c11
