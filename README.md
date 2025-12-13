@@ -1,6 +1,6 @@
 # aoc
 
-Small C CLI for solving AOC quests
+Small C CLI for solving AOC 2025 quests
 
 ## Build & Run
 - Debug (ASan): `just run`  
