@@ -61,3 +61,7 @@ run_line 9 2 "$ROOT/tests/day9_sample.txt" 24
 # Day 10 sample
 run_line 10 1 "$ROOT/tests/day10_sample.txt" 7
 run_line 10 2 "$ROOT/tests/day10_sample.txt" 33
+
+# Day 11 sample
+run_line 11 1 "$ROOT/tests/day11_sample.txt" 5
+run_line 11 2 "$ROOT/tests/day11_part2_sample.txt" 2
