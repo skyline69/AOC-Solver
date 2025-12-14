@@ -13,7 +13,7 @@ debug_bin := bin_dir + "/" + project_name + "_debug"
 release_bin := bin_dir + "/" + project_name
 
 # Inputs
-sources := "src/main.c src/tools.c src/color.c src/cli.c src/days/day1.c src/days/day2.c src/days/day3.c src/days/day4.c"
+sources := "src/main.c src/tools.c src/color.c src/cli.c src/days/day1.c src/days/day2.c src/days/day3.c src/days/day4.c src/days/day5.c"
 include_flags := "-Iinclude"
 cc := "clang"
 

@@ -4,6 +4,7 @@
 #include "days/day2.h"
 #include "days/day3.h"
 #include "days/day4.h"
+#include "days/day5.h"
 #include "tools.h"
 
 #include <stddef.h>
@@ -152,10 +153,21 @@ int main(int argc, char **argv) {
       printf("%s[Part 2]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
              part2, p->reset);
     }
+  } else if (args.day == 5) {
+    if (args.part == PartAll || args.part == PartOne) {
+      unsigned long long part1 = day5Solve(data);
+      printf("%s[Part 1]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
+             part1, p->reset);
+    }
+    if (args.part == PartAll || args.part == PartTwo) {
+      unsigned long long part2 = day5SolvePartTwo(data);
+      printf("%s[Part 2]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
+             part2, p->reset);
+    }
   } else {
     fprintf(stderr, "%sUnsupported day:%s %u\n", p->error, p->reset,
             (unsigned)args.day);
-    fprintf(stderr, "%sCurrently supported days: 1, 2, 3, 4%s\n", p->warn,
+    fprintf(stderr, "%sCurrently supported days: 1, 2, 3, 4, 5%s\n", p->warn,
             p->reset);
     exitCode = 1;
   }
