@@ -5,6 +5,7 @@
 #include "days/day3.h"
 #include "days/day4.h"
 #include "days/day5.h"
+#include "days/day6.h"
 #include "tools.h"
 
 #include <stddef.h>
@@ -41,9 +42,9 @@ static void printVersion(void) {
 
   snprintf(ver, sizeof(ver), "%s%s%s %s%s%s", p->primary, PROJECT_NAME,
            p->reset, p->secondary, PROJECT_VERSION, p->reset);
-  snprintf(author, sizeof(author), "%sAuthor:%s %sSkyline%s", p->bold,
+  snprintf(author, sizeof(author), "%sAuthor:%s %sÖ. Efe D.%s", p->bold,
            p->reset, p->primary, p->reset);
-  snprintf(support, sizeof(support), "%sDays:%s %s1–5%s", p->bold, p->reset,
+  snprintf(support, sizeof(support), "%sDays:%s %s1–6%s", p->bold, p->reset,
            p->primary, p->reset);
   snprintf(license, sizeof(license), "%sLicense:%s %sMIT%s", p->bold, p->reset,
            p->primary, p->reset);
@@ -206,11 +207,22 @@ int main(int argc, char **argv) {
       printf("%s[Part 2]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
              part2, p->reset);
     }
+  } else if (args.day == 6) {
+    if (args.part == PartAll || args.part == PartOne) {
+      unsigned long long part1 = day6Solve(data);
+      printf("%s[Part 1]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
+             part1, p->reset);
+    }
+    if (args.part == PartAll || args.part == PartTwo) {
+      unsigned long long part2 = day6SolvePartTwo(data);
+      printf("%s[Part 2]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
+             part2, p->reset);
+    }
   } else {
     fprintf(stderr, "%sUnsupported day:%s %u\n", p->error, p->reset,
             (unsigned)args.day);
-    fprintf(stderr, "%sCurrently supported days: 1, 2, 3, 4, 5%s\n", p->warn,
-            p->reset);
+    fprintf(stderr, "%sCurrently supported days: 1, 2, 3, 4, 5, 6%s\n",
+            p->warn, p->reset);
     exitCode = 1;
   }
 

@@ -41,3 +41,7 @@ run_line 5 1 "$ROOT/tests/day5_sample.txt" 3
 run_line 5 2 "$ROOT/tests/day5_sample.txt" 14
 run_line 5 1 "$ROOT/tests/day5_edge_ranges.txt" 6
 run_line 5 2 "$ROOT/tests/day5_edge_ranges.txt" 6
+
+# Day 6 sample
+run_line 6 1 "$ROOT/tests/day6_sample.txt" 4277556
+run_line 6 2 "$ROOT/tests/day6_sample.txt" 3263827
