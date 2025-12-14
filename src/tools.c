@@ -104,3 +104,16 @@ char **getLines(char *fileContent, size_t *outCount, Arena *arena) {
   *outCount = idx;
   return result;
 }
+
+unsigned long long parseULL(const char *s, const char **endOut) {
+  unsigned long long val = 0;
+  const char *p = s;
+  while (*p >= '0' && *p <= '9') {
+    val = val * 10ULL + (unsigned long long)(*p - '0');
+    p++;
+  }
+  if (endOut) {
+    *endOut = p;
+  }
+  return val;
+}

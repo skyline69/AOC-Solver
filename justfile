@@ -54,6 +54,10 @@ release: (build "release")
 [group("run")]
 run-release: (run "release")
 
+[group("test")]
+test: (build)
+  ./tests/run_samples.sh
+
 # Maintenance
 [group("maintenance")]
 clean:

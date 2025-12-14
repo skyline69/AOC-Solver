@@ -1,5 +1,7 @@
 #include "days/day4.h"
 
+#include "tools.h"
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -155,23 +157,15 @@ unsigned long long day4SolvePartTwo(const char *data) {
       if (grid[idx] != '@') {
         continue;
       }
-      for (int dy = -1; dy <= 1; ++dy) {
-        int ny = (int)y + dy;
-        if (ny < 0 || ny >= (int)lineCount) {
+      for (int k = 0; k < 8; ++k) {
+        int ny = (int)y + NEIGHBOR_DY[k];
+        int nx = (int)x + NEIGHBOR_DX[k];
+        if (ny < 0 || ny >= (int)lineCount || nx < 0 || nx >= (int)width) {
           continue;
         }
-        for (int dx = -1; dx <= 1; ++dx) {
-          int nx = (int)x + dx;
-          if (nx < 0 || nx >= (int)width) {
-            continue;
-          }
-          if (dx == 0 && dy == 0) {
-            continue;
-          }
-          size_t nidx = (size_t)ny * width + (size_t)nx;
-          if (grid[nidx] == '@') {
-            adj[idx]++;
-          }
+        size_t nidx = (size_t)ny * width + (size_t)nx;
+        if (grid[nidx] == '@') {
+          adj[idx]++;
         }
       }
     }
@@ -212,29 +206,21 @@ unsigned long long day4SolvePartTwo(const char *data) {
     removed++;
 
     // Update neighbors and enqueue newly accessible ones
-    for (int dy = -1; dy <= 1; ++dy) {
-      int ny = pt.y + dy;
-      if (ny < 0 || ny >= (int)lineCount) {
+    for (int k = 0; k < 8; ++k) {
+      int ny = pt.y + NEIGHBOR_DY[k];
+      int nx = pt.x + NEIGHBOR_DX[k];
+      if (ny < 0 || ny >= (int)lineCount || nx < 0 || nx >= (int)width) {
         continue;
       }
-      for (int dx = -1; dx <= 1; ++dx) {
-        int nx = pt.x + dx;
-        if (nx < 0 || nx >= (int)width) {
-          continue;
-        }
-        if (dx == 0 && dy == 0) {
-          continue;
-        }
-        size_t nidx = (size_t)ny * width + (size_t)nx;
-        if (grid[nidx] != '@') {
-          continue;
-        }
-        if (adj[nidx] > 0) {
-          adj[nidx]--;
-        }
-        if (adj[nidx] < 4) {
-          queue[qtail++] = (Point){nx, ny};
-        }
+      size_t nidx = (size_t)ny * width + (size_t)nx;
+      if (grid[nidx] != '@') {
+        continue;
+      }
+      if (adj[nidx] > 0) {
+        adj[nidx]--;
+      }
+      if (adj[nidx] < 4) {
+        queue[qtail++] = (Point){nx, ny};
       }
     }
   }
