@@ -5,4 +5,4 @@
 - **Day 3**: Part1 single pass. Part2 uses monotonic selection for top-12 digits per line. O(n) time, O(1) memory per line.
 - **Day 4**: Grid stored in compact char array; adjacency counts in byte array. Queue-based removal updates neighbor counts; O(n) time, O(n) memory.
 - **Day 5**: Ranges parsed, sorted, merged; membership via binary search (O(log r)). Part2 sums merged lengths. O(r log r) time, O(r) memory.
-- **Testing**: `tests/run_samples.sh` runs provided samples for days 3–5.
+- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–5 (`just test`).
