@@ -1,7 +1,7 @@
 #include "task.h"
 
-void rotateFastPartOne(unsigned char *value, unsigned int amount,
-                       int *counter, enum Direction dir) {
+void day1RotateFastPartOne(unsigned char *value, unsigned int amount,
+                           int *counter, enum Direction dir) {
   int pos = *value;
   if (dir == Right) {
     pos += amount;
@@ -20,8 +20,8 @@ void rotateFastPartOne(unsigned char *value, unsigned int amount,
   }
 }
 
-void rotateFastPartTwo(unsigned char *value, unsigned int amount, int *counter,
-                       enum Direction dir) {
+void day1RotateFastPartTwo(unsigned char *value, unsigned int amount,
+                           int *counter, enum Direction dir) {
   int start = (int)(*value);
 
   unsigned int fullCycles = amount / 100;

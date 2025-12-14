@@ -75,8 +75,8 @@ int main(int argc, char **argv) {
 
     enum Direction dir = (dirChar == 'R') ? Right : Left;
 
-    rotateFastPartOne(&pointerOne, amount, &countOne, dir);
-    rotateFastPartTwo(&pointerTwo, amount, &countTwo, dir);
+    day1RotateFastPartOne(&pointerOne, amount, &countOne, dir);
+    day1RotateFastPartTwo(&pointerTwo, amount, &countTwo, dir);
   }
 
   printf("Part 1: %d\n", countOne);
