@@ -5,10 +5,10 @@
 Small C CLI for solving AOC 2025 quests
 
 ## Build & Run
-- Debug (ASan): `just run`  
+- Debug (ASan): `just run` or `make run`  
   - Note: AddressSanitizer may not run in ptrace-restricted environments; use release if so.
-- Release: `just run-release`
-- Clean: `just clean`
+- Release: `just run-release` or `make run-release`
+- Clean: `just clean` or `make clean`
 
 ## CLI
 - `-d, --day N` — required day to run
