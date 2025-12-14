@@ -134,7 +134,7 @@ ArgParseResult parseArgs(int argc, char **argv, const char *defaultInput) {
       const char *value = argv[++i];
       char *end;
       unsigned long parsed = strtoul(value, &end, 10);
-      if (end == value || *end != '\0' || parsed == 0 || parsed > 25UL) {
+      if (end == value || *end != '\0' || parsed == 0 || parsed > 12UL) {
         snprintf(errorBuf, sizeof(errorBuf), "Invalid day: %s", value);
         result.action = ArgError;
         result.error = errorBuf;

@@ -11,6 +11,7 @@
 #include "days/day9.h"
 #include "days/day10.h"
 #include "days/day11.h"
+#include "days/day12.h"
 #include "tools.h"
 
 #include <stddef.h>
@@ -49,7 +50,7 @@ static void printVersion(void) {
            p->reset, p->secondary, PROJECT_VERSION, p->reset);
   snprintf(author, sizeof(author), "%sAuthor:%s %sskyline%s", p->bold,
            p->reset, p->primary, p->reset);
-  snprintf(support, sizeof(support), "%sDays:%s %s1–11%s", p->bold, p->reset,
+  snprintf(support, sizeof(support), "%sDays:%s %s1–12%s", p->bold, p->reset,
            p->primary, p->reset);
   snprintf(license, sizeof(license), "%sLicense:%s %sMIT%s", p->bold, p->reset,
            p->primary, p->reset);
@@ -278,11 +279,29 @@ int main(int argc, char **argv) {
       printf("%s[Part 2]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
              part2, p->reset);
     }
+  } else if (args.day == 12) {
+    if (args.part == PartAll || args.part == PartOne) {
+      unsigned long long part1 = day12Solve(data);
+      printf("%s[Part 1]%s %s%llu%s\n", p->secondary, p->reset, p->primary,
+             part1, p->reset);
+    }
+    if (args.part == PartAll || args.part == PartTwo) {
+      if (args.part == PartTwo) {
+        fprintf(stderr,
+                "%sDay 12 has no Part 2 in this event.%s\n",
+                p->warn, p->reset);
+        exitCode = 1;
+      } else {
+        fprintf(stderr,
+                "%sDay 12 has no Part 2 in this event; skipping.%s\n",
+                p->warn, p->reset);
+      }
+    }
   } else {
     fprintf(stderr, "%sUnsupported day:%s %u\n", p->error, p->reset,
             (unsigned)args.day);
     fprintf(stderr,
-            "%sCurrently supported days: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11%s\n",
+            "%sCurrently supported days: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12%s\n",
             p->warn, p->reset);
     exitCode = 1;
   }

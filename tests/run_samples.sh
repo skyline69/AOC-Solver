@@ -65,3 +65,6 @@ run_line 10 2 "$ROOT/tests/day10_sample.txt" 33
 # Day 11 sample
 run_line 11 1 "$ROOT/tests/day11_sample.txt" 5
 run_line 11 2 "$ROOT/tests/day11_part2_sample.txt" 2
+
+# Day 12 sample (count of regions that fit)
+run_line 12 1 "$ROOT/tests/day12_sample.txt" 2

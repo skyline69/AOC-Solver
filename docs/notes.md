@@ -11,4 +11,5 @@
 - **Day 9**: Part1: max rectangle between any red corners. Part2: fill orthogonal polygon (red boundary + interior green) via scanline intervals; compress identical rows and use binary search for coverage. Roughly O(r^2 * h') with row compression, memory O(h + r).
 - **Day 10**: Part1 solves GF(2) toggle system via Gaussian elimination (enumerates free vars up to a cutoff). Part2 solves `Ax=t` with `x>=0` integers via branch-and-bound on an LP relaxation (two-phase simplex; pivots artificials out) and validates integer candidates against constraints.
 - **Day 11**: Directed graph of device connections. Part1 counts paths from `you` to `out` via memoized DFS over dynamic adjacency (cycle-safe). Part2 counts paths from `svr` to `out` that visit both `dac` and `fft` using DFS + mask memoization.
-- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–11 (`just test`).
+- **Day 12**: Fast feasibility check for real-sized regions; exact placement search is only used for small regions (sample-sized) using precomputed bitmask placements and "fewest-options" branching. (No Part 2.)
+- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–12 (`just test`).
