@@ -1,4 +1,6 @@
 # aoc
+<img width="650" height="178" alt="help-message" src="https://github.com/user-attachments/assets/16c6bc99-59d7-49ff-88ef-b1806d764c79" />
+
 
 Small C CLI for solving AOC 2025 quests
 
