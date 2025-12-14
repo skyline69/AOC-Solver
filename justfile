@@ -27,6 +27,7 @@ release_flags := "-O3 -march=native -fno-exceptions -fno-unwind-tables -fno-asyn
 # Aliases
 alias b := build
 alias r := run
+alias rr := run-release
 alias c := clean
 
 # Build pipeline
