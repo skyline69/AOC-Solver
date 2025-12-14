@@ -17,4 +17,4 @@ Small C CLI for solving AOC 2025 quests
 
 Example: `./bin/aoc --day 1 --part all --input data/example.txt`
 
-Currently implemented: Days 1–3.
+Currently implemented: Days 1–4.
