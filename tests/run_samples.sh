@@ -49,3 +49,7 @@ run_line 6 2 "$ROOT/tests/day6_sample.txt" 3263827
 # Day 7 sample
 run_line 7 1 "$ROOT/tests/day7_sample.txt" 21
 run_line 7 2 "$ROOT/tests/day7_sample.txt" 40
+
+# Day 8 sample (uses 10 edges)
+run_line 8 1 "$ROOT/tests/day8_sample.txt" 40
+run_line 8 2 "$ROOT/tests/day8_sample.txt" 25272

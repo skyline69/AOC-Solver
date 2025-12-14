@@ -7,4 +7,5 @@
 - **Day 5**: Ranges parsed, sorted, merged; membership via binary search (O(log r)). Part2 sums merged lengths. O(r log r) time, O(r) memory.
 - **Day 6**: Parses column-separated vertical problems; Part1 left-to-right, Part2 right-to-left. O(hw) time to scan grid, O(hw) memory for padded grid.
 - **Day 7**: Beam splitter simulation downward; track active columns per row. O(hw) time, O(w) memory.
-- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–7 (`just test`).
+- **Day 8**: Part1 picks k-shortest pairs (k=1000; 10 for sample) via fixed-size max-heap; unions to form circuits; product of top 3 component sizes. Part2 uses O(n^2) Prim MST (no edge storage) and returns the last-connecting edge's X-product. Memory: O(n).
+- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–8 (`just test`).
