@@ -1,9 +1,9 @@
 #include "cli.h"
 #include "color.h"
-#include "day1.h"
-#include "day2.h"
-#include "day3.h"
-#include "day4.h"
+#include "days/day1.h"
+#include "days/day2.h"
+#include "days/day3.h"
+#include "days/day4.h"
 #include "tools.h"
 
 #include <stddef.h>

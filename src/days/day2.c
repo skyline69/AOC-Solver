@@ -1,4 +1,4 @@
-#include "day2.h"
+#include "days/day2.h"
 
 #include <stdint.h>
 #include <stdlib.h>

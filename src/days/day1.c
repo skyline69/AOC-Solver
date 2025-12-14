@@ -1,4 +1,4 @@
-#include "day1.h"
+#include "days/day1.h"
 
 void day1RotateFastPartOne(unsigned char *value, unsigned int amount,
                            int *counter, enum Direction dir) {
