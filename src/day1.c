@@ -1,15 +1,15 @@
-#include "task.h"
+#include "day1.h"
 
 void day1RotateFastPartOne(unsigned char *value, unsigned int amount,
                            int *counter, enum Direction dir) {
   int pos = *value;
   if (dir == Right) {
-    pos += amount;
+    pos += (int)amount;
     if (pos >= 100) {
       pos %= 100;
     }
   } else {
-    pos -= amount;
+    pos -= (int)amount;
     if (pos < 0) {
       pos = (pos % 100 + 100) % 100;
     }
@@ -31,12 +31,10 @@ void day1RotateFastPartTwo(unsigned char *value, unsigned int amount,
 
   if (remainder > 0 && start != 0) {
     if (dir == Right) {
-      // Need at least (100 - start) clicks to land on 0 once
       if (remainder >= (unsigned int)(100 - start)) {
         (*counter)++;
       }
-    } else { // Left
-      // Need at least start clicks to land on 0 once
+    } else {
       if (remainder >= (unsigned int)start) {
         (*counter)++;
       }

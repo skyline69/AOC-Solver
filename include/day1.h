@@ -1,5 +1,5 @@
-#ifndef TASK_H
-#define TASK_H
+#ifndef DAY1_H
+#define DAY1_H
 
 enum Direction { Right, Left };
 

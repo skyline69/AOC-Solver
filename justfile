@@ -13,7 +13,7 @@ debug_bin := bin_dir + "/" + project_name + "_debug"
 release_bin := bin_dir + "/" + project_name
 
 # Inputs
-sources := "src/main.c src/task.c src/tools.c src/args.c"
+sources := "src/main.c src/tools.c src/color.c src/cli.c src/day1.c src/day2.c"
 include_flags := "-Iinclude"
 cc := "clang"
 
@@ -62,4 +62,3 @@ clean:
 [group("meta")]
 help:
   @just --list
-

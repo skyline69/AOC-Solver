@@ -9,8 +9,10 @@ Small C CLI for solving AOC 2025 quests
 - Clean: `just clean`
 
 ## CLI
+- `-d, --day N` — required day to run
+- `-p, --part {1|2|all}` — choose part(s) to run (default: all)
 - `-i, --input PATH` — input file path (default: `input.txt`)
 - `-h, --help` — usage
 - `-v, --version` — binary name and version (from `justfile` metadata)
 
-Example: `./bin/aoc --input data/example.txt`
+Example: `./bin/aoc --day 1 --part all --input data/example.txt`
