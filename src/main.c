@@ -2,6 +2,7 @@
 #include "color.h"
 #include "day1.h"
 #include "day2.h"
+#include "day3.h"
 #include "tools.h"
 
 #include <stddef.h>
@@ -81,6 +82,21 @@ static int runDay2(const char *data, enum PartChoice part) {
   return 0;
 }
 
+static int runDay3(const char *data, enum PartChoice part) {
+  const Palette *colors = paletteGet();
+  if (part == PartAll || part == PartOne) {
+    unsigned long long part1 = day3Solve(data);
+    printf("%s[Part 1]%s %s%llu%s\n", colors->secondary, colors->reset,
+           colors->primary, part1, colors->reset);
+  }
+  if (part == PartAll || part == PartTwo) {
+    unsigned long long part2 = day3SolvePartTwo(data);
+    printf("%s[Part 2]%s %s%llu%s\n", colors->secondary, colors->reset,
+           colors->primary, part2, colors->reset);
+  }
+  return 0;
+}
+
 int main(int argc, char **argv) {
   Arena arena = arenaCreate(ARENA_SIZE);
   if (!arena.base) {
@@ -122,10 +138,13 @@ int main(int argc, char **argv) {
     exitCode = runDay1(data, size, args.part);
   } else if (args.day == 2) {
     exitCode = runDay2(data, args.part);
+  } else if (args.day == 3) {
+    exitCode = runDay3(data, args.part);
   } else {
     fprintf(stderr, "%sUnsupported day:%s %u\n", p->error, p->reset,
             (unsigned)args.day);
-    fprintf(stderr, "%sCurrently supported days: 1, 2%s\n", p->warn, p->reset);
+    fprintf(stderr, "%sCurrently supported days: 1, 2, 3%s\n", p->warn,
+            p->reset);
     exitCode = 1;
   }
 

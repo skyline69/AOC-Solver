@@ -16,3 +16,5 @@ Small C CLI for solving AOC 2025 quests
 - `-v, --version` — binary name and version (from `justfile` metadata)
 
 Example: `./bin/aoc --day 1 --part all --input data/example.txt`
+
+Currently implemented: Days 1–3.
