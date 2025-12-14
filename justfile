@@ -1,49 +1,64 @@
+# Global settings
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+set quiet
+
 # Project metadata
 project_name := "aoc"
 project_version := "0.1.0"
 
-# Paths and build inputs
-bin_dir := "bin"
+# Paths
+root := justfile_directory()
+bin_dir := root + "/bin"
 debug_bin := bin_dir + "/" + project_name + "_debug"
 release_bin := bin_dir + "/" + project_name
+
+# Inputs
 sources := "src/main.c src/task.c src/tools.c src/args.c"
 include_flags := "-Iinclude"
 cc := "clang"
 
-# Common compiler flags (fast and safe defaults)
+# Flags
 common_flags := "-std=c11 -Wall -Wextra -Wconversion -Wshadow -pedantic"
 metadata_flags := "-DPROJECT_NAME=\\\"" + project_name + "\\\" -DPROJECT_VERSION=\\\"" + project_version + "\\\""
 
-# Default target
-default: run
+debug_flags := "-O2 -g -fsanitize=address -fno-omit-frame-pointer"
+release_flags := "-O3 -march=native -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables"
 
-# Sanitized build (debug / safety)
-build:
-	mkdir -p {{bin_dir}}
-	{{cc}} {{include_flags}} {{common_flags}} {{metadata_flags}} {{sources}} \
-		-O2 \
-		-g \
-		-fsanitize=address \
-		-fno-omit-frame-pointer \
-		-o {{debug_bin}}
+# Aliases
+alias b := build
+alias r := run
+alias c := clean
 
-run: build
-	./{{debug_bin}}
+# Build pipeline
+[group("build")]
+compile profile="debug":
+  mkdir -p {{bin_dir}}
 
-# Optimized release build with embedded metadata
-release:
-	mkdir -p {{bin_dir}}
-	{{cc}} {{include_flags}} {{common_flags}} {{metadata_flags}} {{sources}} \
-		-O3 \
-		-march=native \
-		-fno-exceptions \
-		-fno-unwind-tables \
-		-fno-asynchronous-unwind-tables \
-		-o {{release_bin}}
+  {{cc}} {{include_flags}} {{common_flags}} {{metadata_flags}} {{sources}} \
+    {{ if profile == "release" { release_flags } else { debug_flags } }} \
+    -o {{ if profile == "release" { release_bin } else { debug_bin } }}
 
-run-release: release
-	./{{release_bin}}
+[group("build")]
+build profile="debug": (compile profile)
 
-# Cleanup
+# Run targets
+[group("run")]
+[default]
+run profile="debug": (build profile)
+  {{ if profile == "release" { release_bin } else { debug_bin } }}
+
+[group("build")]
+release: (build "release")
+
+[group("run")]
+run-release: (run "release")
+
+# Maintenance
+[group("maintenance")]
 clean:
-	rm -rf {{bin_dir}}
+  rm -rf {{bin_dir}}
+
+[group("meta")]
+help:
+  @just --list
+
