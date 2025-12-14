@@ -15,7 +15,7 @@ Small C CLI for solving AOC 2025 quests
 - `-p, --part {1|2|all}` — choose part(s) to run (default: all)
 - `-i, --input PATH` — input file path (default: `input.txt`)
 - `-h, --help` — usage
-- `-v, --version` — binary name and version (from `justfile` metadata)
+- `-a, --about` — about/version info
 
 Example: `./bin/aoc --day 1 --part all --input data/example.txt`
 

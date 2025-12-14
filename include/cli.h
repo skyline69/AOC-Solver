@@ -1,7 +1,7 @@
 #ifndef CLI_H
 #define CLI_H
 
-enum ArgAction { ArgRun, ArgShowHelp, ArgShowVersion, ArgError };
+enum ArgAction { ArgRun, ArgShowHelp, ArgShowAbout, ArgError };
 enum PartChoice { PartAll = 0, PartOne = 1, PartTwo = 2 };
 
 typedef struct {

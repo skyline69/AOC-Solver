@@ -46,7 +46,7 @@ void printHelp(const char *programName, const char *defaultInput) {
            "  %s-h%s, %s--help%s        Show this help message", p->warn,
            p->reset, p->warn, p->reset);
   snprintf(optVersion, sizeof(optVersion),
-           "  %s-v%s, %s--version%s     Show version information", p->warn,
+           "  %s-a%s, %s--about%s       Show about information", p->warn,
            p->reset, p->warn, p->reset);
   const char *info[] = {header,  usage,  options, optDay,
                         optPart, optInput, optHelp, optVersion};
@@ -108,8 +108,8 @@ ArgParseResult parseArgs(int argc, char **argv, const char *defaultInput) {
       return result;
     }
 
-    if (strcmp(arg, "--version") == 0 || strcmp(arg, "-v") == 0) {
-      result.action = ArgShowVersion;
+    if (strcmp(arg, "--about") == 0 || strcmp(arg, "-a") == 0) {
+      result.action = ArgShowAbout;
       return result;
     }
 

@@ -9,6 +9,7 @@
 
 #include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 
 #ifndef PROJECT_NAME
 #define PROJECT_NAME "aoc"
@@ -24,8 +25,49 @@
 
 static void printVersion(void) {
   const Palette *p = paletteGet();
-  printf("%s%s%s %s%s%s\n", p->primary, PROJECT_NAME, p->reset, p->secondary,
-         PROJECT_VERSION, p->reset);
+  static const char *ginger[] = {
+      "   ,-.",
+      " _(*_*)_",
+      "(_  o  _)",
+      "  / o \\",
+      " (_/ \\_)",
+  };
+
+  char ver[128];
+  char author[128];
+  char support[128];
+  char license[160];
+  char year[64];
+
+  snprintf(ver, sizeof(ver), "%s%s%s %s%s%s", p->primary, PROJECT_NAME,
+           p->reset, p->secondary, PROJECT_VERSION, p->reset);
+  snprintf(author, sizeof(author), "%sAuthor:%s %sSkyline%s", p->bold,
+           p->reset, p->primary, p->reset);
+  snprintf(support, sizeof(support), "%sDays:%s %s1–5%s", p->bold, p->reset,
+           p->primary, p->reset);
+  snprintf(license, sizeof(license), "%sLicense:%s %sMIT%s", p->bold, p->reset,
+           p->primary, p->reset);
+  snprintf(year, sizeof(year), "%sYear made:%s %s2025%s", p->bold, p->reset,
+           p->primary, p->reset);
+
+  const char *info[] = {ver, author, support, license, year};
+  const size_t gcount = sizeof(ginger) / sizeof(ginger[0]);
+  const size_t icount = sizeof(info) / sizeof(info[0]);
+  size_t width = 0;
+  for (size_t i = 0; i < gcount; ++i) {
+    size_t len = strlen(ginger[i]);
+    if (len > width) {
+      width = len;
+    }
+  }
+
+  size_t lines = (gcount > icount) ? gcount : icount;
+  for (size_t i = 0; i < lines; ++i) {
+    const char *g = (i < gcount) ? ginger[i] : "";
+    const char *inf = (i < icount) ? info[i] : "";
+    printf("%s%-*s%s %s\n", p->accent, (int)width, g, p->reset, inf);
+  }
+  printf("\n");
 }
 
 static int runDay1(const char *data, size_t size, enum PartChoice part) {
@@ -112,7 +154,7 @@ int main(int argc, char **argv) {
     printf("\n");
     arenaDestroy(&arena);
     return 0;
-  } else if (args.action == ArgShowVersion) {
+  } else if (args.action == ArgShowAbout) {
     printVersion();
     arenaDestroy(&arena);
     return 0;
