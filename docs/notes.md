@@ -8,4 +8,5 @@
 - **Day 6**: Parses column-separated vertical problems; Part1 left-to-right, Part2 right-to-left. O(hw) time to scan grid, O(hw) memory for padded grid.
 - **Day 7**: Beam splitter simulation downward; track active columns per row. O(hw) time, O(w) memory.
 - **Day 8**: Part1 picks k-shortest pairs (k=1000; 10 for sample) via fixed-size max-heap; unions to form circuits; product of top 3 component sizes. Part2 uses O(n^2) Prim MST (no edge storage) and returns the last-connecting edge's X-product. Memory: O(n).
-- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–8 (`just test`).
+- **Day 9**: Part1: max rectangle between any red corners. Part2: fill orthogonal polygon (red boundary + interior green) via scanline intervals; compress identical rows and use binary search for coverage. Roughly O(r^2 * h') with row compression, memory O(h + r).
+- **Testing**: `tests/run_samples.sh` runs provided samples/edge cases for days 1–9 (`just test`).
