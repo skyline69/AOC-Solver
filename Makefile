@@ -7,7 +7,7 @@ BIN_DIR := bin
 DEBUG_BIN := $(BIN_DIR)/$(PROJECT_NAME)_debug
 RELEASE_BIN := $(BIN_DIR)/$(PROJECT_NAME)
 
-SOURCES := src/main.c src/tools.c src/color.c src/cli.c src/days/day1.c src/days/day2.c src/days/day3.c src/days/day4.c src/days/day5.c src/days/day6.c src/days/day7.c src/days/day8.c src/days/day9.c src/days/day10.c src/days/day11.c src/days/day12.c
+SOURCES := src/main.c src/tools.c src/color.c src/cli.c src/validate.c src/days/day1.c src/days/day2.c src/days/day3.c src/days/day4.c src/days/day5.c src/days/day6.c src/days/day7.c src/days/day8.c src/days/day9.c src/days/day10.c src/days/day11.c src/days/day12.c
 INCLUDE_FLAGS := -Iinclude
 CC := clang
 

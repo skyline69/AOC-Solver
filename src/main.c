@@ -13,6 +13,7 @@
 #include "days/day11.h"
 #include "days/day12.h"
 #include "tools.h"
+#include "validate.h"
 
 #include <stddef.h>
 #include <stdio.h>
@@ -180,6 +181,16 @@ int main(int argc, char **argv) {
             args.input_path);
     fprintf(stderr, "%sUse --help to see usage and options.%s\n", p->warn,
             p->reset);
+    arenaDestroy(&arena);
+    return 1;
+  }
+
+  char errBuf[256];
+  if (!validateInputForDay(args.day, data, size, errBuf, sizeof(errBuf))) {
+    fprintf(stderr, "%sInvalid input for day %u:%s %s\n", p->error,
+            (unsigned)args.day, p->reset, errBuf);
+    fprintf(stderr, "%sUse --input to point at the correct file for this day.%s\n",
+            p->warn, p->reset);
     arenaDestroy(&arena);
     return 1;
   }
