@@ -4,7 +4,7 @@ set quiet
 
 # Project metadata
 project_name := "aoc"
-project_version := "0.1.0"
+project_version := "1.0.0"
 
 # Paths
 root := justfile_directory()
